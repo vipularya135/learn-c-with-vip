@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Write a C program to calculate sum of digits of a number.</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f1f1f1;
+        color: #333;
+      }
+      .container {
+        width: 80%;
+        margin: auto;
+      }
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #333;
+      }
+      .btn-container {
+        display: flex;
+        justify-content: flex-end;
+      }
+      button {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background-color: #666;
+      }
+      .copy-btn {
+        background-color: #fff;
+        color: #333;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        margin-left: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .copy-btn:hover {
+        background-color: #ccc;
+      }
+      code {
+        display: none;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: 20px 0;
+        font-family: monospace;
+        font-size: 1.2rem;
+        color: #333;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Write a C program to calculate sum of digits of a number.</h1>
+      <div class="btn-container">
+        <button onclick="showAnswer()">Show Answer</button>
+        <button onclick="copyAnswer()" class="copy-btn">Copy Answer</button>
+      </div>
+      <code id="answer">
+ #include<stdio.h><br>
+int main()<br>
+{<br>
+  int num,remain,sum;<br>
+  sum=0;<br>
+  printf("enter number");<br>
+  scanf("%d", &num);<br>
+  while(num>0)<br>
+    {<br>
+      remain=num%10;<br>
+      sum=sum+remain;<br>
+      num=num/10;<br>
+    }<br>
+  printf("sum of digits is:%d", sum);<br>
+  return 0;<br>
+}
+      </code>
+    </div>
+    <script>
+      function showAnswer() {
+        var answer = document.getElementById("answer");
+        answer.style.display = "block";
+      }
+
+      function copyAnswer() {
+        var answer = document.getElementById("answer");
+        var range = document.createRange();
+        range.selectNode(answer);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand("copy");
+        alert("Answer copied to clipboard.");
+      }
+    </script>
+  </body>
+</html>

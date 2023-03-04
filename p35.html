@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Write a program to store and print the roll no., name , age and semester of n student using structures.</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f1f1f1;
+        color: #333;
+      }
+      .container {
+        width: 80%;
+        margin: auto;
+      }
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #333;
+      }
+      .btn-container {
+        display: flex;
+        justify-content: flex-end;
+      }
+      button {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background-color: #666;
+      }
+      .copy-btn {
+        background-color: #fff;
+        color: #333;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        margin-left: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .copy-btn:hover {
+        background-color: #ccc;
+      }
+      code {
+        display: none;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: 20px 0;
+        font-family: monospace;
+        font-size: 1.2rem;
+        color: #333;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Write a program to store and print the roll no., name , age and semester of n student using structures.</h1>
+      <div class="btn-container">
+        <button onclick="showAnswer()">Show Answer</button>
+        <button onclick="copyAnswer()" class="copy-btn">Copy Answer</button>
+      </div>
+      <code id="answer">
+ #include<stdio.h><br>
+int main()<br>
+{<br>
+  int n;<br>
+  struct det{<br>
+  int roll;<br>
+  char name;<br>
+  int age;<br>
+  int sem;<br>
+  } s[n];<br>
+  printf("enter number:\n");<br>
+  scanf("%d", &n);<br>
+  printf("enter your roll no, name, age, semester:\n");<br>
+  for(int i=1;i<=n;i++)<br>
+    {<br>
+      scanf(" %d %c %d %d", &s[i].roll, &s[i].name, &s[i].age, &s[i].sem);<br>
+    }<br>
+  printf("you entered the following data:\n");<br>
+  for(int i=1;i<=n;i++)<br>
+    {<br>
+     printf(" %d %c %d %d \n", s[i].roll, s[i].name, s[i].age, s[i].sem);<br>
+    }<br>
+  }
+      </code>
+    </div>
+    <script>
+      function showAnswer() {
+        var answer = document.getElementById("answer");
+        answer.style.display = "block";
+      }
+
+      function copyAnswer() {
+        var answer = document.getElementById("answer");
+        var range = document.createRange();
+        range.selectNode(answer);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand("copy");
+        alert("Answer copied to clipboard.");
+      }
+    </script>
+  </body>
+</html>

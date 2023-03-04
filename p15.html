@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>A certain grade of steel is graded according to the following conditions:
+(i) Hardness must be greater than 50
+(ii) Carbon content must be less than 0.7
+(iii) Tensile strength must be greater than 5600
+The grades are as follows:
+Grade is 10 if all three conditions are met
+Grade is 9 if conditions (i) and (ii) are met
+Grade is 8 if conditions (ii) and (iii) are met
+Grade is 7 if conditions (i) and (iii) are met
+Grade is 6 if only one condition is met
+Grade is 5 if none of the conditions are met
+Write a program to rank steel depending upon the conditions given above. </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f1f1f1;
+        color: #333;
+      }
+      .container {
+        width: 80%;
+        margin: auto;
+      }
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #333;
+      }
+      .btn-container {
+        display: flex;
+        justify-content: flex-end;
+      }
+      button {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background-color: #666;
+      }
+      .copy-btn {
+        background-color: #fff;
+        color: #333;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        margin-left: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .copy-btn:hover {
+        background-color: #ccc;
+      }
+      code {
+        display: none;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: 20px 0;
+        font-family: monospace;
+        font-size: 1.2rem;
+        color: #333;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>A certain grade of steel is graded according to the following conditions:
+(i) Hardness must be greater than 50
+(ii) Carbon content must be less than 0.7
+(iii) Tensile strength must be greater than 5600
+The grades are as follows:
+Grade is 10 if all three conditions are met
+Grade is 9 if conditions (i) and (ii) are met
+Grade is 8 if conditions (ii) and (iii) are met
+Grade is 7 if conditions (i) and (iii) are met
+Grade is 6 if only one condition is met
+Grade is 5 if none of the conditions are met
+Write a program to rank steel depending upon the conditions given above. </h1>
+      <div class="btn-container">
+        <button onclick="showAnswer()">Show Answer</button>
+        <button onclick="copyAnswer()" class="copy-btn">Copy Answer</button>
+      </div>
+      <code id="answer">
+ #include<stdio.h><br>
+int main()<br>
+{<br>
+  int hard,tens;<br>
+  float carbon;<br>
+  printf("enter hardness:");<br>
+  scanf("%d", &hard);<br>
+   printf("enter tensile strength :");<br>
+  scanf("%d", &tens);<br>
+   printf("enter carbon:");<br>
+  scanf("%f", &carbon);<br>
+  if(hard>50&&carbon<0.7&&tens>5600)<br>
+    printf("grade is 10");<br>
+  else if (hard>50&&carbon<0.7)<br>
+    printf("grade is 9");<br>
+  else if (carbon<0.7&&tens>5600)<br>
+    printf("grade is 8");<br>
+  else if(hard>50&&tens>5600)<br>
+    printf("grade is 7");<br>
+  else if(hard>50||tens>5600||carbon<0.7)<br>
+    printf("grade is 6");<br>
+  else<br>
+    printf("grade is 5");<br>
+  return 0;<br>
+}
+      </code>
+    </div>
+    <script>
+      function showAnswer() {
+        var answer = document.getElementById("answer");
+        answer.style.display = "block";
+      }
+
+      function copyAnswer() {
+        var answer = document.getElementById("answer");
+        var range = document.createRange();
+        range.selectNode(answer);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand("copy");
+        alert("Answer copied to clipboard.");
+      }
+    </script>
+  </body>
+</html>

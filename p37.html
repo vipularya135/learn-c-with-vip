@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Enter the marks of 'n' students in Chemistry, Mathematics and Physics (each out of 100) using a structure named Marks having elements roll no., name, chem_marks, maths_marks and phy_marks and then display the percentage of each student.</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f1f1f1;
+        color: #333;
+      }
+      .container {
+        width: 80%;
+        margin: auto;
+      }
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #333;
+      }
+      .btn-container {
+        display: flex;
+        justify-content: flex-end;
+      }
+      button {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background-color: #666;
+      }
+      .copy-btn {
+        background-color: #fff;
+        color: #333;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        margin-left: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .copy-btn:hover {
+        background-color: #ccc;
+      }
+      code {
+        display: none;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: 20px 0;
+        font-family: monospace;
+        font-size: 1.2rem;
+        color: #333;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Enter the marks of 'n' students in Chemistry, Mathematics and Physics (each out of 100) using a structure named Marks having elements roll no., name, chem_marks, maths_marks and phy_marks and then display the percentage of each student.</h1>
+      <div class="btn-container">
+        <button onclick="showAnswer()">Show Answer</button>
+        <button onclick="copyAnswer()" class="copy-btn">Copy Answer</button>
+      </div>
+      <code id="answer">
+#include <stdio.h><br>
+#include <string.h><br>
+int main()<br> {<br>
+  int n, i;<br>
+  struct Marks {<br>
+    char name[20];<br>
+    int perc;<br>
+    int rno, chem_marks, math_marks, phy_marks;<br>
+  };<br>
+  struct Marks a[n];<br>
+  printf("Enter the number of students \n");<br>
+  scanf("%d", &n);<br>
+  int sum;<br>
+  printf("Enter name,roll no., and marks out of 100.\n");<br>
+  for (i = 0; i < n; i++)<br> {<br>
+    scanf(" %s %d %d %d %d", &a[i].name, &a[i].rno, &a[i].chem_marks,<br>
+          &a[i].math_marks, &a[i].phy_marks);<br>
+    a[i].perc = (a[i].chem_marks + a[i].math_marks + a[i].phy_marks) / 3;<br>
+    printf("%d.%s: %d%\n", a[i].rno, a[i].name, a[i].perc);<br>
+  }<br>
+}
+      </code>
+    </div>
+    <script>
+      function showAnswer() {
+        var answer = document.getElementById("answer");
+        answer.style.display = "block";
+      }
+
+      function copyAnswer() {
+        var answer = document.getElementById("answer");
+        var range = document.createRange();
+        range.selectNode(answer);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand("copy");
+        alert("Answer copied to clipboard.");
+      }
+    </script>
+  </body>
+</html>
